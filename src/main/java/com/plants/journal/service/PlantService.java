@@ -22,8 +22,9 @@ public class PlantService {
 
     @Transactional
     @SneakyThrows
-    public Plant findById(UUID id) {
-        return repository.findById(id).orElseThrow(() -> new NotFoundException("No Plant with id: " + id));
+    public PlantDTOResponse findById(UUID id) {
+        return mapper.toDto(repository.findById(id)
+                .orElseThrow(() -> new NotFoundException("No Plant with id: " + id)));
     }
 
     @Transactional
