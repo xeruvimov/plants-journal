@@ -16,41 +16,36 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class PlantService {
     private final PlantRepository repository;
     private final PlantMapper mapper;
 
-    @Transactional
     @SneakyThrows
     public PlantDTOResponse findById(UUID id) {
         return mapper.toDto(repository.findById(id)
                 .orElseThrow(() -> new NotFoundException("No Plant with id: " + id)));
     }
 
-    @Transactional
     public List<PlantDTOResponse> findAll() {
         return mapper.toDto((Collection<Plant>) repository.findAll());
     }
 
-    @Transactional
     public UUID create(String name,
                        String description) {
         Plant plant = new Plant(name, description);
         return repository.save(plant).getId();
     }
 
-    @Transactional
     public UUID update(PlantDTOResponse plantDTOResponse) {
         Plant plant = repository.findById(plantDTOResponse.getId())
                 .orElseThrow(() -> new IllegalStateException("No Plant with id: " + plantDTOResponse.getId()));
 
-        plant.setName(plantDTOResponse.getName());
-        plant.setDescription(plantDTOResponse.getDescription());
+        mapper.updateEntity(plantDTOResponse, plant);
 
         return repository.save(plant).getId();
     }
 
-    @Transactional
     public void delete(UUID id) {
         repository.deleteById(id);
     }

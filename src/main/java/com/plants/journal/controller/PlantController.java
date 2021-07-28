@@ -15,12 +15,12 @@ import java.util.UUID;
 @RestController
 @Slf4j
 @RequestMapping("api/plant")
-public class PlanController {
+public class PlantController {
     private final PlantService service;
 
     @PostMapping(value = "/create")
     public UUID create(@RequestBody @Valid PlantDTORequest plant) {
-        log.debug("Create new RepairRequest: {}", plant);
+        log.debug("Create new Plant: {}", plant);
         return service.create(
                 plant.getName(),
                 plant.getDescription());

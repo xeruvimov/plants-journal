@@ -1,13 +1,15 @@
 package com.plants.journal.dto;
 
+import com.plants.journal.domain.enums.EventType;
 import lombok.Data;
 
 import java.util.UUID;
 
 @Data
 public class EventDTOResponse {
+    private UUID eventId;
     private UUID plantId;
-    private String eventType;
+    private EventType eventType;
     private long date;
     private String message;
 }

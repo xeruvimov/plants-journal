@@ -1,5 +1,6 @@
 package com.plants.journal.dto;
 
+import com.plants.journal.domain.enums.EventType;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
@@ -14,6 +15,6 @@ public class EventDTORequest {
     private long date;
 
     @NotEmpty
-    private String eventType;
+    private EventType eventType;
     private String message;
 }
