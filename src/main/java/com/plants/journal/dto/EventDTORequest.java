@@ -3,18 +3,17 @@ package com.plants.journal.dto;
 import com.plants.journal.domain.enums.EventType;
 import lombok.Data;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Data
 public class EventDTORequest {
-    @NotEmpty
+    @NotNull
     private UUID plantId;
 
-    @NotEmpty
     private long date;
 
-    @NotEmpty
+    @NotNull
     private EventType eventType;
     private String message;
 }

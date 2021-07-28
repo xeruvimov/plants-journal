@@ -7,10 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -19,6 +16,7 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 public class Event extends StandardAuditEntity {
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "event_type")
     private EventType eventType;
 
@@ -29,6 +27,6 @@ public class Event extends StandardAuditEntity {
     private String message;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "plant_id", nullable = false)
     private Plant plant;
 }

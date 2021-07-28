@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Data
 public class EventDTOResponse {
-    private UUID eventId;
+    private UUID id;
     private UUID plantId;
     private EventType eventType;
     private long date;

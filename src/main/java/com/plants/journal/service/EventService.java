@@ -50,8 +50,8 @@ public class EventService implements CrudService<EventDTOResponse, EventDTOReque
 
     @Override
     public UUID update(EventDTOResponse dto) {
-        Event event = repository.findById(dto.getEventId())
-                .orElseThrow(() -> new IllegalStateException("No Plant with id: " + dto.getEventId()));
+        Event event = repository.findById(dto.getId())
+                .orElseThrow(() -> new IllegalStateException("No Plant with id: " + dto.getId()));
 
         mapper.updateEntity(dto, event);
 

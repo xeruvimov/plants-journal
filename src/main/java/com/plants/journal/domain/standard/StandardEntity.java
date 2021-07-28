@@ -12,6 +12,6 @@ import java.util.UUID;
 @MappedSuperclass
 public abstract class StandardEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 }
