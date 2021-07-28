@@ -1,6 +1,7 @@
 package com.plants.journal.service;
 
 import com.plants.journal.domain.Plant;
+import com.plants.journal.dto.PlantDTORequest;
 import com.plants.journal.dto.PlantDTOResponse;
 import com.plants.journal.mapper.PlantMapper;
 import com.plants.journal.repository.PlantRepository;
@@ -17,7 +18,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class PlantService {
+public class PlantService implements CrudService<PlantDTOResponse, PlantDTORequest> {
     private final PlantRepository repository;
     private final PlantMapper mapper;
 
@@ -31,9 +32,8 @@ public class PlantService {
         return mapper.toDto((Collection<Plant>) repository.findAll());
     }
 
-    public UUID create(String name,
-                       String description) {
-        Plant plant = new Plant(name, description);
+    public UUID create(PlantDTORequest dto) {
+        Plant plant = new Plant(dto.getName(), dto.getDescription());
         return repository.save(plant).getId();
     }
 

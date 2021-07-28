@@ -21,9 +21,7 @@ public class PlantController {
     @PostMapping(value = "/create")
     public UUID create(@RequestBody @Valid PlantDTORequest plant) {
         log.debug("Create new Plant: {}", plant);
-        return service.create(
-                plant.getName(),
-                plant.getDescription());
+        return service.create(plant);
     }
 
     @GetMapping("/{id}")
