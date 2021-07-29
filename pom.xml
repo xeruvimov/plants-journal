@@ -12,7 +12,6 @@
     <artifactId>journal</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>journal</name>
-    <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
         <swagger.version>2.9.2</swagger.version>
