@@ -6,6 +6,7 @@ import com.plants.journal.service.PlantService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Slf4j
 @RequestMapping("api/plant")
 @SecurityRequirement(name = "journalapi")
+@PreAuthorize("hasAuthority('user')")
 public class PlantController {
     private final PlantService service;
 

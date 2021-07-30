@@ -6,6 +6,7 @@ import com.plants.journal.service.EventService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Slf4j
 @RequestMapping("api/event")
 @SecurityRequirement(name = "journalapi")
+@PreAuthorize("hasAuthority('user')")
 public class EventController {
     private final EventService service;
 
