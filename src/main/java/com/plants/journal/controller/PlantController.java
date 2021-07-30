@@ -3,6 +3,7 @@ package com.plants.journal.controller;
 import com.plants.journal.dto.PlantDTORequest;
 import com.plants.journal.dto.PlantDTOResponse;
 import com.plants.journal.service.PlantService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @RestController
 @Slf4j
 @RequestMapping("api/plant")
+@SecurityRequirement(name = "journalapi")
 public class PlantController {
     private final PlantService service;
 

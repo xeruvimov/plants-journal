@@ -3,6 +3,7 @@ package com.plants.journal.controller;
 import com.plants.journal.dto.EventDTORequest;
 import com.plants.journal.dto.EventDTOResponse;
 import com.plants.journal.service.EventService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @RestController
 @Slf4j
 @RequestMapping("api/event")
+@SecurityRequirement(name = "journalapi")
 public class EventController {
     private final EventService service;
 
