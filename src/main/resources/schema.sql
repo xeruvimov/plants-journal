@@ -7,6 +7,7 @@ CREATE TABLE if not exists plant
     date_modified TIMESTAMPTZ,
     name          varchar,
     description   varchar,
+    user_id       uuid,
     PRIMARY KEY (id)
 );
 

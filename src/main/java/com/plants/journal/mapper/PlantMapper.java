@@ -13,5 +13,6 @@ public interface PlantMapper extends AbstractEntityMapper<PlantDTOResponse, Plan
     EventDTOResponse toDto(Event event);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "user", ignore = true)
     void updateEntity(PlantDTOResponse plantDTOResponse, @MappingTarget Plant plant);
 }
