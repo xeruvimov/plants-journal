@@ -17,8 +17,6 @@ public class SecurityAuditorAware implements AuditorAware<String> {
                     if (authentication.getPrincipal() instanceof UserDetails) {
                         UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
                         return springSecurityUser.getUsername();
-                    } else if (authentication.getPrincipal() instanceof String) {
-                        return (String) authentication.getPrincipal();
                     }
                     return "system";
                 });

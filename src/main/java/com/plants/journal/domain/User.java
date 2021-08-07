@@ -3,7 +3,6 @@ package com.plants.journal.domain;
 import com.plants.journal.domain.standard.StandardAuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +11,6 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -69,5 +67,13 @@ public class User extends StandardAuditEntity implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        return getId().equals(((User) o).getId());
     }
 }

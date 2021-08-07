@@ -1,3 +1,16 @@
+CREATE TABLE if not exists user_rg
+(
+    id            uuid DEFAULT uuid_generate_v4(),
+    created_by    varchar(255),
+    date_created  TIMESTAMPTZ,
+    modified_by   varchar(255),
+    date_modified TIMESTAMPTZ,
+    password      varchar(255),
+    username      varchar(255),
+    email         varchar(255),
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE if not exists plant
 (
     id            uuid DEFAULT uuid_generate_v4(),
@@ -7,6 +20,7 @@ CREATE TABLE if not exists plant
     date_modified TIMESTAMPTZ,
     name          varchar,
     description   varchar,
+    user_id       uuid,
     PRIMARY KEY (id)
 );
 
@@ -21,21 +35,10 @@ CREATE TABLE if not exists event
     date          bigint,
     message       varchar,
     plant_id      uuid,
+    user_id       uuid,
     PRIMARY KEY (id),
-    constraint plant foreign key (plant_id) references plant (id)
-);
-
-CREATE TABLE if not exists user_rg
-(
-    id            uuid DEFAULT uuid_generate_v4(),
-    created_by    varchar(255),
-    date_created  TIMESTAMPTZ,
-    modified_by   varchar(255),
-    date_modified TIMESTAMPTZ,
-    password      varchar(255),
-    username      varchar(255),
-    email         varchar(255),
-    PRIMARY KEY (id)
+    constraint plant foreign key (plant_id) references plant (id),
+    constraint user_ref foreign key (user_id) references user_rg (id)
 );
 
 CREATE TABLE if not exists role
