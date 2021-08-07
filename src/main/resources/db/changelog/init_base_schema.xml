@@ -4,6 +4,9 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet author="xeruvimov" logicalFilePath="001_init_base_schema.sql" id="001_init_base_schema"/>
+    <changeSet author="xeruvimov" id="001_init_base_schema">
+        <sqlFile path="001_init_base_schema.sql" relativeToChangelogFile="true"/>
+        <sqlFile path="002_add_role.sql" relativeToChangelogFile="true"/>
+    </changeSet>
 
 </databaseChangeLog>

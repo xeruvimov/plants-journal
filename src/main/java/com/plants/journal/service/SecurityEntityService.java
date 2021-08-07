@@ -16,7 +16,7 @@ public class SecurityEntityService {
     public void securityCheck(String currentUserName, SecurityEntity entity) {
         User user = userService.getByUsername(currentUserName);
         if (!user.equals(entity.getUser())) {
-            throw new IllegalUserAccessException("Сущность не принадлежит данному юзеру");
+            throw new IllegalUserAccessException("The entity does not belong to this user");
         }
     }
 }

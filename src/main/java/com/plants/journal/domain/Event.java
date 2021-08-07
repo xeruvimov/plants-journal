@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Event extends StandardAuditEntity {
+public class Event extends StandardAuditEntity implements SecurityEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "event_type")
@@ -29,4 +29,8 @@ public class Event extends StandardAuditEntity {
     @ManyToOne
     @JoinColumn(name = "plant_id", nullable = false)
     private Plant plant;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }
