@@ -19,7 +19,7 @@ import java.util.UUID;
 @Slf4j
 @RequestMapping("api/plant")
 @SecurityRequirement(name = "journalapi")
-@PreAuthorize("hasAuthority('user')")
+@PreAuthorize("hasAuthority('ROLE_USER')")
 public class PlantController {
     private final PlantService service;
 

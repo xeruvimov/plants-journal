@@ -19,7 +19,7 @@ import java.util.UUID;
 @Slf4j
 @RequestMapping("api/event")
 @SecurityRequirement(name = "journalapi")
-@PreAuthorize("hasAuthority('user')")
+@PreAuthorize("hasAuthority('ROLE_USER')")
 public class EventController {
     private final EventService service;
 
