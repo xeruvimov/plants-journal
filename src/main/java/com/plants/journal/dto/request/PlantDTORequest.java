@@ -1,4 +1,4 @@
-package com.plants.journal.dto;
+package com.plants.journal.dto.request;
 
 import lombok.Data;
 

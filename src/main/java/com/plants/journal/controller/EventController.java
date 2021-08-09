@@ -1,7 +1,7 @@
 package com.plants.journal.controller;
 
-import com.plants.journal.dto.EventDTORequest;
-import com.plants.journal.dto.EventDTOResponse;
+import com.plants.journal.dto.request.EventDTORequest;
+import com.plants.journal.dto.response.EventDTOResponse;
 import com.plants.journal.service.EventService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;

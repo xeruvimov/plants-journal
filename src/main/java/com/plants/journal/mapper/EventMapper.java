@@ -1,7 +1,7 @@
 package com.plants.journal.mapper;
 
 import com.plants.journal.domain.Event;
-import com.plants.journal.dto.EventDTOResponse;
+import com.plants.journal.dto.response.EventDTOResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

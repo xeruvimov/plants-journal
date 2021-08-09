@@ -2,8 +2,8 @@ package com.plants.journal.service;
 
 import com.plants.journal.domain.Plant;
 import com.plants.journal.domain.User;
-import com.plants.journal.dto.PlantDTORequest;
-import com.plants.journal.dto.PlantDTOResponse;
+import com.plants.journal.dto.request.PlantDTORequest;
+import com.plants.journal.dto.response.PlantDTOResponse;
 import com.plants.journal.mapper.PlantMapper;
 import com.plants.journal.repository.PlantRepository;
 import javassist.NotFoundException;
@@ -58,5 +58,9 @@ public class PlantService implements CrudSecurityService<PlantDTOResponse, Plant
                 .orElseThrow(() -> new NotFoundException("No Plant with id: " + id));
         securityEntityService.securityCheck(userName, plant);
         repository.deleteById(id);
+    }
+
+    public List<Plant> getAllById(List<UUID> id) {
+        return repository.findAllById(id);
     }
 }

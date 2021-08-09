@@ -2,8 +2,8 @@ package com.plants.journal.mapper;
 
 import com.plants.journal.domain.Event;
 import com.plants.journal.domain.Plant;
-import com.plants.journal.dto.EventDTOResponse;
-import com.plants.journal.dto.PlantDTOResponse;
+import com.plants.journal.dto.response.EventDTOResponse;
+import com.plants.journal.dto.response.PlantDTOResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
