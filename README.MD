@@ -14,4 +14,4 @@ Enter in search bar `/journal-openapi`
 
 [Maven]: https://maven.apache.org/download.cgi
 [Java 11]: https://www.oracle.com/ru/java/technologies/javase-jdk11-downloads.html
-[PostgreSQL]: https://www.postgresql.org/download/https://www.postgresql.org/download/
+[PostgreSQL]: https://www.postgresql.org/download/
